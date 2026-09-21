@@ -279,9 +279,7 @@ namespace GitCredentialManager
             [System.Runtime.CompilerServices.CallerLineNumber] int lineNumber = 0,
             [System.Runtime.CompilerServices.CallerMemberName] string memberName = "")
         {
-            string message = this.IsSecretTracingEnabled
-                           ? string.Format(format, secrets)
-                           : string.Format(format, secrets.Select(_ => (object)SecretMask).ToArray());
+            string message = string.Format(format, secrets.Select(_ => (object)SecretMask).ToArray());
 
             WriteLine(message, filePath, lineNumber, memberName);
         }
